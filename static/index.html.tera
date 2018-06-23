@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>None Bummer</title>
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+    <h1>None Bummer Summer</h1>
+    <div class="navigation">
+      <span class="link link-main"><a href="/">Main Page</a></span>
+      <span class="between"></span>
+      <span class="link link-acts"><a href="/activities">Activities</a></span>
+      <span class="between"></span>
+      <span class="link link-fren"><a href="/friends">Friends</a></span>
+    </div>
+    {% if msg %}
+      <div class="msg">
+        <span class="msg">{{ msg }}</span>
+      </div>
+    {% endif %}
+    <form class="form" action="/add/points" method="post">
+      <div class="friend-buttons" id="friend-buttons">
+        <select class="friend" name="friend" id="select-friend">
+          {% for friend in friends %}
+            <option value="{{ friend.id }}">{{ friend.name }}</option>
+          {% endfor %}
+        </select>
+        <button type="button" name="viewFriend" id="view-friend">View Friend</button>
+        <button type="submit" name="submit" id="submit">Add Points</button>
+      </div>
+      <div id="help-msg" class="msg center hide">
+        <p>Check some activities first.</p>
+      </div>
+      <table id="activity-table"></table>
+      <input class="hide" type="text" name="footer" value="Footer"> <!-- So the activity parser has something at the end -->
+    </form>
+  </body>
+  <script type="text/javascript">
+    let activities = [
+      {% for activity in activities %}
+        {
+          id: {{activity.id}},
+          name: "{{activity.name}}",
+          description: "{{activity.description}}",
+          points: {{activity.points}},
+        },
+      {% endfor %}
+    ]
+  </script>
+  <script src="js/index.js" charset="utf-8"></script>
+</html>

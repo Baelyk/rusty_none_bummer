@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Activities - None Bummer</title>
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/activities.css">
+  </head>
+  <body>
+    <h1>None Bummer Summer</h1>
+    <div class="navigation">
+      <span class="link link-main"><a href="/">Main Page</a></span>
+      <span class="between"></span>
+      <span class="link link-acts"><a href="/activities">Activities</a></span>
+      <span class="between"></span>
+      <span class="link link-fren"><a href="/friends">Friends</a></span>
+    </div>
+    <h2>Add activities</h2>
+    {% if msg %}
+      <div class="msg">
+        <span class="msg">{{ msg }}</span>
+      </div>
+    {% endif %}
+    <form class="form" action="/add/activities" method="post">
+      <table id="activity-table"></table>
+      <input class="hide" type="text" name="footer" value="Footer"> <!-- So the activity parser has something at the end -->
+    </form>
+  </body>
+  <script type="text/javascript">
+    let activities = [
+      {% for activity in activities %}
+        {
+          id: {{activity.id}},
+          name: "{{activity.name}}",
+          description: "{{activity.description}}",
+          points: {{activity.points}},
+        },
+      {% endfor %}
+    ]
+  </script>
+  <script src="js/activities.js" charset="utf-8"></script>
+</html>

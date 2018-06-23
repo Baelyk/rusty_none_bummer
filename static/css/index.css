@@ -1,0 +1,72 @@
+table, th, td {
+  /* border: 1pt solid black; */
+  /* border-collapse: collapse; */
+  border-radius: 3pt;
+  padding: 5pt;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  background-color: #e5e5e5;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+.check-column {
+  padding: 5pt 0;
+  text-align: center;
+  width: 30px; /* minimum so just fits the checkbox */
+}
+
+#header-points {
+  width: 10%;
+}
+
+#search-row {
+  text-align: center;
+}
+
+input[type='text'] {
+  border: 1pt solid #bfbfbf;
+  border-radius: 3pt;
+  font-size: 11pt;
+  padding: 3pt;
+  width: 99%;
+}
+
+input[type='text']:focus {
+  outline: 0;
+}
+
+.friend-buttons {
+  text-align: center;
+}
+
+.friend-buttons > select, .friend-buttons > button {
+  width: 100pt;
+}
+
+.friend-buttons > select {
+  font-size: 12pt;
+}
+
+.friend-buttons > button {
+  font-size: 11pt;
+  border: 1pt solid #bfbfbf;
+  border-radius: 3pt;
+  background-color: #ffffff;
+}
+
+.friend-buttons > button:hover {
+  background-color: #f2f2f2;
+}
+
+.friend-buttons > button:active {
+  background-color: #bfbfbf;
+  border: 1pt solid #7f7f7f;
+}

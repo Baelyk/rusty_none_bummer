@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Friends - None Bummer</title>
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/friends.css">
+  </head>
+  <body>
+    <h1>None Bummer Summer</h1>
+    <div class="navigation">
+      <span class="link link-main"><a href="/">Main Page</a></span>
+      <span class="between"></span>
+      <span class="link link-acts"><a href="/activities">Activities</a></span>
+      <span class="between"></span>
+      <span class="link link-fren"><a href="/friends">Friends</a></span>
+    </div>
+    <h2>Friends of None Bummer Summer</h2>
+    <table id="friend-table"></table>
+  </body>
+  <script type="text/javascript">
+    let friends = [
+      {% for friend in friends %}
+        {
+          name: "{{ friend.name }}",
+          points: "{{ friend.points }}"
+        },
+      {% endfor %}
+    ]
+  </script>
+  <script src="js/friends.js" charset="utf-8"></script>
+</html>
